@@ -13,7 +13,6 @@ delay= 60 #FPS do vídeo
 
 detec = []
 carros= 0
-carros2 = 0
 
 	
 def pega_centro(x, y, w, h):
@@ -23,8 +22,7 @@ def pega_centro(x, y, w, h):
     cy = y + y1
     return cx,cy
 
-#cap = cv2.VideoCapture('video.mp4')
-cap = cv2.VideoCapture('road_traffic.mp4')
+cap = cv2.VideoCapture('video.mp4')
 subtracao = cv2.createBackgroundSubtractorMOG2()
 
 while True:
@@ -41,7 +39,6 @@ while True:
     contorno,h=cv2.findContours(dilatada,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
     
     cv2.line(frame1, (25, pos_linha), (600, pos_linha), (255,127,0), 3)
-##    cv2.line(frame1, (700, pos_linha), (1000, pos_linha), (255,127,0), 3)
     
     for(i,c) in enumerate(contorno):
         (x,y,w,h) = cv2.boundingRect(c)
@@ -62,8 +59,7 @@ while True:
                 print("car is detected : "+str(carros))        
        
     cv2.putText(frame1, "VEHICLE COUNT : "+str(carros), (450, 70), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255),5)
-    #cv2.putText(frame1, "VEHICLE COUNT 2: "+str(carros2), (450, 70), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255),5)
-    
+
     cv2.imshow("Video Original" , frame1)
     cv2.imshow("Detectar",dilatada)
 
