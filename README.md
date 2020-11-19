@@ -6,4 +6,4 @@ Nous utilisons :
 - Numpy
 - Time
 <br><br>
-# traffic-lights-ia
+# traffic-lights-ai
